@@ -1,6 +1,7 @@
+// DEPENDENCIES
 const express = require("express");
-const path = require("path");
 
+// EXPRESS CONFIGURATION
 const app = express();
 
 let PORT = process.env.PORT || 8080;
@@ -9,17 +10,10 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 // ROUTES 
-// ---------------------------------------
-app.get("/notes", function(req, res){
-    res.sendFile(path.join(__dirname, "/public/notes.html"));
-});
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
-app.get("*", function(req, res){
-    res.sendFile(path.join(__dirname, "/public/index.html"));
-});
-
-// Start Server
-//----------------------------------------
+// LISTENER
 app.listen(PORT, function() {
     console.log("App is listening on PORT: " + PORT);
 });
