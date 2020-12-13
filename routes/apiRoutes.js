@@ -11,5 +11,9 @@ module.exports = function(app){
     app.post("/api/notes", function(req, res){
         noteData.push(req.body);
         res.json(true);
-    })
+    });
+
+    app.delete("/api/notes/:id", function(req,res){
+        //Remove an object by id
+    });
 }

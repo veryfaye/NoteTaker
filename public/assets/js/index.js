@@ -89,6 +89,7 @@ const handleNoteView = function () {
 const handleNewNoteView = function () {
   activeNote = {};
   renderActiveNote();
+  console.log("New Note Clicked")
 };
 
 // If a note's title or text are empty, hide the save button
